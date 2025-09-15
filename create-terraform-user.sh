@@ -22,7 +22,3 @@ echo "📌 Atribuindo role '$ROLE' ao usuário '$USER'..."
 pveum aclmod / -user $USER -role $ROLE
 
 echo "✅ Usuário, role e token criados com sucesso!"
-echo ""
-echo "Use as credenciais no Terraform assim:"
-echo "PM_USER=$USER!$TOKEN_ID"
-echo "PM_TOKEN=<token-secret-retornado>"
