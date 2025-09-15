@@ -1,0 +1,45 @@
+---
+
+- name: Configure Web Server Locally
+  hosts: all
+  become: true
+  
+  tasks:
+   - name: Install Nginx
+     pacman:
+       name: nginx
+
+   - name: Install Git
+     pacman:
+       name: git
+       state: present
+   
+   - name: Ensure Nginx service is started and enabled
+     service:
+       name: nginx
+       state: started
+       enabled: yes
+     when: ansible_facts['distribution'] == "Archlinux"
+
+   - name: Clone website repository
+     git:
+       repo: 'https://github.com/avanti-dvp/site-exemplo-aws.git' # Pode ser o mesmo repo ou outro
+       dest: '/tmp/website'
+       clone: yes
+
+   - name: Deploy website files to Nginx document root
+     copy:
+       src: "/tmp/website/"
+       dest: "/usr/share/nginx/html/"
+       remote_src: yes # src e dest estão na mesma máquina
+       owner: root
+       group: http
+       mode: '0755'
+     notify:
+     - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
