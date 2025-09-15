@@ -31,7 +31,7 @@ O script [`create-arch-vm.sh`](./create-arch-vm.sh) automatiza o processo de:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/LuisCarlosJp/Homelab.git
+   git clone https://github.com/LuisCarlosJp/Desafio-Terraform-Ansible.git
    cd homelab
    ```
 
