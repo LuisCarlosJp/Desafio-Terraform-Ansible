@@ -1,10 +1,15 @@
 # Desafio-Terraform-Ansible
 
-# Homelab – Proxmox + Terraform
+Este repositório contém a documentação e os arquivos do desafio do Bootcamp DevOps da Atlântico Avanti, que consistiu em automatizar a criação e configuração de máquinas virtuais.
 
-Este repositório documenta a realização do desafio do bootcamp, utilizando **Proxmox VE** como hypervisor, **Terraform** para provisionamento automatizado de máquinas virtuais e **Ansible** para configura-las.
+O projeto utiliza:
 
----
+- Proxmox VE como hypervisor para gerenciamento das VMs;
+
+- Terraform para provisionamento automatizado e consistente das VMs;
+
+- Ansible para configuração e deploy de serviços, garantindo que as máquinas fiquem prontas para uso.
+
 
 ## 📌 Etapa 1 – Criando o Template Arch Linux no Proxmox
 
@@ -18,7 +23,7 @@ Nesta primeira etapa, vamos preparar um **template base** do Arch Linux no Proxm
 
 ### 📥 Script de criação do template
 
-O script [`create-arch-vm.sh`](./create-arch-vm.sh) automatiza o processo de:
+O script [`create-arch-vm.sh`](./scripts/create-arch-template.sh) automatiza o processo de:
 
 1. Download da imagem cloud do Arch Linux.
 2. Customização da imagem com `virt-customize` (instalação do `qemu-guest-agent`).
