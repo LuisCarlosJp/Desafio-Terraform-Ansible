@@ -159,6 +159,18 @@ Abaixo está um GIF mostrando a execução do Ansible, configurando a VM provisi
 ![Execução do Ansible](./assets/ansible.gif)
 
 
-📌 Resultado final:
+## 📌 Resultado final:
+
+Após a execução do playbook, o Nginx estará rodando na VM e a página personalizada configurada será servida:
+
+```bash
+http://<IP-DA-SUA-VM>
+
+```
+
+Ao acessar o IP no navegador, você verá a página baixada e configurada pelo playbook.
 
 
+![Resultado Final](./assets/landing_page_result.png)
+
+Esse resultado confirma que a VM foi provisionada pelo Terraform e configurada corretamente pelo Ansible.
