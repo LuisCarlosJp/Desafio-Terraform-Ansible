@@ -80,7 +80,7 @@ Após execução, anote o **token** e **ID** que será utilizado posteriormente
 
 Após ter o template Arch Linux pronto e o usuário/token do Terraform configurados no Proxmox, podemos criar máquinas virtuais automatizadas usando Terraform.
 
-🔧 Pré-requisitos
+###🔧 Pré-requisitos
 
 Antes de rodar o Terraform, é necessário garantir:
 
@@ -128,3 +128,37 @@ Abaixo está uma captura de tela mostrando a execução do Terraform para provis
 ![Execução do Terraform](./assets/terraform.gif)
 
 Isso significa que o terraform rodou como sucesso e o endereço IP foi atribuido  à VM via DHCP corretamente, assim podendo se conectar à VM via SSH.
+
+## 📌 Etapa 4 – Configurando VMs com Ansible
+
+Após provisionar a VM com Terraform, podemos configurar serviços e usuários usando Ansible.
+
+### 🔧 Pré-requisitos
+
+1. Ter o Ansible instalado no seu computador.
+2. Ter acesso SSH à VM, usando a chave pública configurada pelo Terraform.
+3. Ter o inventário configurado, por exemplo:
+   
+```bash
+[web_servers]
+192.168.1.100   # IP da VM provisionada pelo Terraform
+``` 
+
+### ▶️ Como executar o playbook
+
+Rode o playbook principal do Ansible:
+```bash
+ansible-playbook site.yml
+```
+O Ansible vai executar as tarefas definidas, como instalar pacotes, configurar usuários e serviços, garantindo que a VM fique pronta para uso.
+
+### 🖥️ Execução do Terraform
+
+Abaixo está um GIF mostrando a execução do Ansible, configurando a VM provisionada:
+
+![Execução do Ansible](./assets/ansible.gif)
+
+
+📌 Resultado final:
+
+
