@@ -148,6 +148,7 @@ Após provisionar a VM com Terraform, podemos configurar serviços e usuários u
 
 Rode o playbook principal do Ansible:
 ```bash
+cd Desafio-Terraform-Ansible/Ansible/
 ansible-playbook site.yml
 ```
 O Ansible vai executar as tarefas definidas, como instalar pacotes, configurar usuários e serviços, garantindo que a VM fique pronta para uso.
