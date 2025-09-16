@@ -1,0 +1,29 @@
+---
+- name: Install nginx
+  pacman:
+    name: nginx
+    state: present
+  when: ansible_distribution == "Archlinux"
+
+- name: Ensure nginx is started and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Clone website repository
+  git:
+    repo: "{{ website_repo }}"
+    dest: "/tmp/website"
+    clone: yes
+
+- name: Deploy website files to nginx document root
+  copy:
+    src: "/tmp/website/"
+    dest: "{{ nginx_root }}"
+    remote_src: yes
+    owner: root
+    group: http
+    mode: '0755'
+  notify: restart nginx
+

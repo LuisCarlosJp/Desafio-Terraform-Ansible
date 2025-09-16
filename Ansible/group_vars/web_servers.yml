@@ -1,0 +1,2 @@
+nginx_root: /usr/share/nginx/html
+website_repo: "https://github.com/avanti-dvp/site-exemplo-aws.git"

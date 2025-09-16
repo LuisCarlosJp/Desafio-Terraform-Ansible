@@ -1,0 +1,13 @@
+---
+- name: Update repo cache (Archlinux)
+  pacman:
+    update_cache: yes
+  changed_when: false
+  when: ansible_distribution == "Archlinux"
+
+- name: Install base packages
+  package:
+    name:
+      - vim
+      - git
+    state: present
